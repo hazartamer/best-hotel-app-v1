@@ -1,0 +1,10 @@
+<div class="profile-container">
+    <h2>Profil Bilgileri</h2>
+    <div *ngIf="userProfile">
+      <p><strong>Ad:</strong> {{ userProfile.firstName }}</p>
+      <p><strong>Email:</strong> {{ userProfile.email }}</p>
+      <p><strong>Password:</strong> {{ userProfile.password }}</p>
+
+      <!-- Diğer kullanıcı bilgilerini buraya ekleyin -->
+    </div>
+  </div>

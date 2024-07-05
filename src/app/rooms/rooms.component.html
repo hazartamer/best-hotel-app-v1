@@ -1,0 +1,26 @@
+<div class="room-container">
+  <div *ngFor="let room of rooms" class="room-card">
+    <div class="room-details">
+      <h2>{{ room.name }}</h2>
+      <p>Type: {{ room.type }}</p>
+      <p>Price: {{ room.price }} USD</p>
+      <div class="room-image">
+        <img [src]="room.imageUrl" alt="{{ room.name }}">
+      </div>
+      <button (click)="toggleReservationForm(room.id)">Rezervasyon Yap</button>
+      <div *ngIf="showReservationForm && selectedRoomId === room.id" class="reservation-form">
+        <form (ngSubmit)="makeReservation(room.id)">
+          <div>
+            <label for="startDate">Start Date:</label>
+            <input [(ngModel)]="reservation.startDate" name="startDate" type="date" required>
+          </div>
+          <div>
+            <label for="endDate">End Date:</label>
+            <input [(ngModel)]="reservation.endDate" name="endDate" type="date" required>
+          </div>
+          <button type="submit">Rezervasyon Yap</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
